@@ -26,6 +26,8 @@ this is the request
 }
 ```
 
-you need to 
-* convert this reqeust into a readable data that can be use in the DB
+the flow
+* detect the bs name
+* convert the data into a readable product prive table
+
 
