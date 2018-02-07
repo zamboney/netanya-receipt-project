@@ -1,0 +1,30 @@
+sequenceDiagram
+    participant Client
+    participant FB Function
+    participant FB Storage
+    participant FB DB
+    participant API
+
+    participant Google Vision
+    Client->>FB DB: create item 'x'
+activate Client
+    activate FB DB
+    FB DB->>Client: item 'x' created
+    deactivate FB DB
+    Client->>FB Storage: new image recipt 'x'
+    activate FB Storage
+    FB Storage->>FB Function: trigger new image recipt 'x'
+activate FB Function
+FB Function-->Google Vision: decode recipt
+    FB Function->>API: image 'x' json
+activate API
+   deactivate FB Function
+FB Storage->>Client: upload done
+   deactivate FB Storage
+
+API ->> FB DB: new  decode recipt 'x'
+deactivate API
+activate FB DB
+FB DB ->> Client: recipt 'x' decoded
+deactivate FB DB
+ deactivate client
