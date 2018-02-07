@@ -23,6 +23,60 @@
             {
               "xml": "<feature name=\"SplashScreen\"><param name=\"android-package\" value=\"org.apache.cordova.splashscreen.SplashScreen\" /><param name=\"onload\" value=\"true\" /></feature>",
               "count": 1
+            },
+            {
+              "xml": "<feature name=\"FirebasePlugin\"><param name=\"android-package\" value=\"org.apache.cordova.firebase.FirebasePlugin\" /><param name=\"onload\" value=\"true\" /></feature>",
+              "count": 1
+            }
+          ]
+        }
+      },
+      "res/values/strings.xml": {
+        "parents": {
+          "/resources": [
+            {
+              "xml": "<string name=\"google_app_id\">@string/google_app_id</string>",
+              "count": 1
+            },
+            {
+              "xml": "<string name=\"google_api_key\">@string/google_api_key</string>",
+              "count": 1
+            }
+          ]
+        }
+      },
+      "AndroidManifest.xml": {
+        "parents": {
+          "/*": [
+            {
+              "xml": "<uses-permission android:name=\"android.permission.INTERNET\" />",
+              "count": 1
+            },
+            {
+              "xml": "<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\" />",
+              "count": 1
+            },
+            {
+              "xml": "<uses-permission android:name=\"android.permission.WAKE_LOCK\" />",
+              "count": 1
+            }
+          ],
+          "/manifest/application": [
+            {
+              "xml": "<service android:enabled=\"true\" android:exported=\"false\" android:name=\"com.google.android.gms.measurement.AppMeasurementService\" />",
+              "count": 1
+            },
+            {
+              "xml": "<service android:name=\"org.apache.cordova.firebase.FirebasePluginMessagingService\"><intent-filter><action android:name=\"com.google.firebase.MESSAGING_EVENT\" /></intent-filter></service>",
+              "count": 1
+            },
+            {
+              "xml": "<service android:name=\"org.apache.cordova.firebase.FirebasePluginInstanceIDService\"><intent-filter><action android:name=\"com.google.firebase.INSTANCE_ID_EVENT\" /></intent-filter></service>",
+              "count": 1
+            },
+            {
+              "xml": "<receiver android:name=\"org.apache.cordova.firebase.OnNotificationOpenReceiver\" />",
+              "count": 1
             }
           ]
         }
@@ -43,6 +97,9 @@
       "PACKAGE_NAME": "io.ionic.starter"
     },
     "cordova-plugin-ionic-webview": {
+      "PACKAGE_NAME": "io.ionic.starter"
+    },
+    "cordova-plugin-firebase": {
       "PACKAGE_NAME": "io.ionic.starter"
     }
   },
@@ -72,6 +129,14 @@
       "clobbers": [
         "navigator.splashscreen"
       ]
+    },
+    {
+      "id": "cordova-plugin-firebase.FirebasePlugin",
+      "file": "plugins/cordova-plugin-firebase/www/firebase.js",
+      "pluginId": "cordova-plugin-firebase",
+      "clobbers": [
+        "FirebasePlugin"
+      ]
     }
   ],
   "plugin_metadata": {
@@ -79,6 +144,7 @@
     "cordova-plugin-whitelist": "1.3.1",
     "cordova-plugin-device": "1.1.4",
     "cordova-plugin-splashscreen": "4.0.3",
-    "cordova-plugin-ionic-webview": "1.1.16"
+    "cordova-plugin-ionic-webview": "1.1.16",
+    "cordova-plugin-firebase": "0.1.25"
   }
 }
